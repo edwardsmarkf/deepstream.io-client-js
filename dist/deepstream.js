@@ -5152,7 +5152,7 @@ Record.prototype._applyChange = function (newData) {
     var oldValue = jsonPath.get(oldData, paths[i], false);
 
     if (newValue !== oldValue) {
-      this._eventEmitter.emit(paths[i], this.get(paths[i]));
+      this._eventEmitter.emit(paths[i], this.get(paths[i]), this.name); // include the record name (this.name) in the subscribe call
     }
   }
 };
